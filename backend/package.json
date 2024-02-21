@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/AlbertLnz/mern-workout-panel/issues"
   },
-  "homepage": "https://github.com/AlbertLnz/mern-workout-panel#readme"
+  "homepage": "https://github.com/AlbertLnz/mern-workout-panel#readme",
+  "dependencies": {
+    "express": "4.18.2"
+  }
 }
