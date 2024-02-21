@@ -1,0 +1,26 @@
+{
+  "name": "mern-workout-panel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlbertLnz/mern-workout-panel.git"
+  },
+  "keywords": [
+    "MERN",
+    "MongoDB",
+    "ExpressJS",
+    "ReactJS",
+    "NodeJS"
+  ],
+  "author": "AlbertLnz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlbertLnz/mern-workout-panel/issues"
+  },
+  "homepage": "https://github.com/AlbertLnz/mern-workout-panel#readme"
+}
