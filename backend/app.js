@@ -1,15 +1,13 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import { myMiddleware } from './server/helpers/exampleMiddleware.js'
+import routerApi from './server/routes/routerApiWorkouts.js'
 
 dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 3000
 
-app.get('/', myMiddleware, (_req, res) => {
-  res.send('Hola mundo!')
-})
-
+// Routers
+app.use('/api/workouts', routerApi)
 
 
 app.listen(PORT, () => {
