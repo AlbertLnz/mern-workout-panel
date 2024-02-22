@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 
 export const getAllWorkouts = async (_req, res) => {
 
+  res.header('Access-Control-Allow-Origin', '*')
+
   try {
     
     const workouts = await Workout.find({}).sort({createdAt: -1}) // Descending order
