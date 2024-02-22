@@ -50,5 +50,23 @@ export const createWorkout = async (req, res) => {
 
   }
 
+}
+
+export const updateWorkout = async (req, res) => {
+
+  console.log(req.body)
+  const { id } = req.params
+
+  if(!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ error: 'Bad Request - ID invalid' })
+  }
+
+  const workout = await Workout.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true }) // { new: true } <- to see the object updated!
+
+  if(!workout) {
+    return res.status(404).json({ error: 'Bad Request - ID invalid' })
+  }
+
+  res.status(200).json({ message: 'Workout updated!', workout})
 
 }
