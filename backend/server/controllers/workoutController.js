@@ -1,4 +1,5 @@
 import Workout from "../models/WorkoutModel.js";
+import mongoose from "mongoose";
 
 export const getAllWorkouts = async (_req, res) => {
 
@@ -12,6 +13,25 @@ export const getAllWorkouts = async (_req, res) => {
     res.json({ error: error.message }).status(500)
 
   }
+
+}
+
+export const getOneWorkoutById = async (req, res) => {
+
+  const { id } = req.params
+
+  if(!mongoose.Types.ObjectId.isValid(id)) {
+    return res.json({ error: 'Bad Request - ID invalid' }).status(400)
+  }
+
+  const workout = await Workout.findById(id)
+  // const workout = await Workout.findOne({ _id: id })
+
+  if(!workout) {
+    return res.json({ error: 'Error 404 - Not Found' }).status(404)
+  }
+
+  res.json(workout).status(200)
 
 }
 

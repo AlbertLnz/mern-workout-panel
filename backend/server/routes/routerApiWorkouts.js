@@ -1,9 +1,11 @@
 import express from 'express'
-import { getAllWorkouts, createWorkout } from '../controllers/workoutController.js'
+import { getAllWorkouts, getOneWorkoutById, createWorkout } from '../controllers/workoutController.js'
 
 const router = express.Router()
 
 router.get('/', getAllWorkouts)
+
+router.get('/:id', getOneWorkoutById)
 
 router.post('/', createWorkout)
 
