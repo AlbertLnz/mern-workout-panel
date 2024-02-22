@@ -86,6 +86,12 @@ export const updateWorkout = async (req, res) => {
 
 export const deleteWorkout = async (req, res) => {
 
+  const origin = req.header('origin')
+
+  if(ACCEPTED_ORIGINS.includes(origin)) {    
+    res.header('Access-Control-Allow-Origin', origin)
+  }
+
   const { id } = req.params
 
   if(!mongoose.Types.ObjectId.isValid(id)) {
