@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 export const getAllWorkouts = async (_req, res) => {
 
-  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173')
 
   try {
     
