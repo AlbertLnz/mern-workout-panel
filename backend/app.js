@@ -10,11 +10,12 @@ const PORT = process.env.PORT || 3000
 // Connect MongoDB
 connectDB()
 
+// Middlewares
+app.use(express.json())
+
 // Routers
 app.use('/api/workouts', routerApi)
 
-// Middlewares
-app.use(express.json())
 
 app.listen(PORT, () => {
   console.log(`Server listening on port http://localhost:${PORT}`)
