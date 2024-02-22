@@ -1,9 +1,20 @@
 import Workout from "../models/WorkoutModel.js";
 import mongoose from "mongoose";
 
-export const getAllWorkouts = async (_req, res) => {
+const ACCEPTED_ORIGINS = [
+  'http://localhost:5173', // <- development
+  'http://localhost:8080', // <- development
+  'http://localhost:3000',  // <- development
+  'https://myworkout.com',  // <- producion
+]
 
-  res.header('Access-Control-Allow-Origin', 'http://localhost:5173')
+export const getAllWorkouts = async (req, res) => {
+
+  const origin = req.header('origin')
+
+  if(ACCEPTED_ORIGINS.includes(origin)) {    
+    res.header('Access-Control-Allow-Origin', origin)
+  }
 
   try {
     
