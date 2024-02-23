@@ -1,11 +1,40 @@
 import User from '../models/UserModel.js'
 import validator from "validator";
 import createToken from '../utils/createJWT.js';
+import bcrypt from 'bcrypt'
 
-export const loginUser = async (_req, res) => {
+export const loginUser = async (req, res) => {
 
-  res.status(200).json('hello user')
-  
+  const { email, password } = req.body
+
+  if(!email || !password) {
+    return res.status(400).json({ error: 'All fields must be filled!' })
+  }
+
+  try {
+    
+    const user = await User.findOne({ email })
+
+    if(!user) {
+      throw Error('Incorrect email!')
+    }
+
+    const match = await bcrypt.compare(password, user.password)
+
+    if(!match) {
+      throw Error('Incorrect password!')
+    }
+
+    const token = createToken(user._id)
+
+    res.status(200).json({ message: 'Login in successfully!', token })
+
+  } catch (error) {
+    
+    res.status(500).json({ message: error.message })
+
+  }
+
 }
 
 export const singupUser = async (req, res) => {
