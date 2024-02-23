@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar.jsx'
 import { WorkoutsContextProvider } from './context/WorkoutContext.jsx'
 import { AuthContextProvider } from './context/AuthContext.jsx'
+import Signup from './pages/Signup.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <div className='pages'>
               <Routes>
                 <Route path="/" element={ <App /> }/>
+                <Route path="/signup" element={ <Signup /> }/>
               </Routes>
             </div>
           </BrowserRouter>
