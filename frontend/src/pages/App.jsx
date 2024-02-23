@@ -21,7 +21,7 @@ const App = () => {
     }
     fetchWorkoutData()
 
-  }, [])
+  }, [dispatch])
   
 
   return (
