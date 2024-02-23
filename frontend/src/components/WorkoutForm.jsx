@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+import { Toaster, toast } from "sonner"
 
 const WorkoutForm = () => {
   
@@ -37,7 +38,8 @@ const WorkoutForm = () => {
       setError('')
       setEmptyFields([])
       dispatch({ type: 'CREATE_WORKOUT', payload: json.workoutCreated })
-      // console.log('Workout added:', json)
+      toast.success(json.message)
+      console.log('Workout added:', json)
     }
 
   }
@@ -62,6 +64,8 @@ const WorkoutForm = () => {
           { error }
         </div>
       }
+
+      <Toaster richColors />
     </form>
 
   )
