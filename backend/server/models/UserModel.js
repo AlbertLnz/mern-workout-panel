@@ -14,7 +14,7 @@ UserSchema.statics.signup = async function (email, password) {
   const emailExists = await this.findOne({ email }) // === await User.findOne(), but in the model I don't have the export of model 'User' !
 
   if(emailExists) {
-    throw Error('Email already exists')
+    throw Error('Email already exists') // <-- jumps to catch block
   }
 
   const salt = await bcrypt.genSalt(10)

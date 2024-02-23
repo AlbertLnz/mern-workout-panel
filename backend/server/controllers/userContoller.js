@@ -1,4 +1,5 @@
 import User from '../models/UserModel.js'
+import validator from "validator";
 
 export const loginUser = async (_req, res) => {
 
@@ -9,6 +10,18 @@ export const loginUser = async (_req, res) => {
 export const singupUser = async (req, res) => {
 
   const { email, password } = req.body
+
+  if(!email || !password) {
+    return res.status(400).json({ error: 'All fields must be filled!' })
+  }
+
+  if(!validator.isEmail(email)) {
+    return res.status(400).json({ error: 'Email is not valid!' })
+  }
+
+  if(!validator.isStrongPassword(password)) {
+    return res.status(400).json({ error: 'Password is not enough strong!' })
+  }
 
   try {
     
