@@ -1,5 +1,6 @@
 import User from '../models/UserModel.js'
 import validator from "validator";
+import createToken from '../utils/createJWT.js';
 
 export const loginUser = async (_req, res) => {
 
@@ -26,7 +27,9 @@ export const singupUser = async (req, res) => {
   try {
     
     const user = await User.signup(email, password)
-    res.status(201).json({ message: 'User created!', user })
+    const token = createToken(user._id)
+
+    res.status(201).json({ message: 'User created!', user, token })
 
   } catch (error) {
     
