@@ -53,6 +53,11 @@ export const singupUser = async (req, res) => {
     return res.status(400).json({ error: 'Password is not enough strong!' })
   }
 
+  const exists = await User.findOne({ email })
+  if (exists) {
+    return res.status(400).json({ error: 'Email already in use!' })
+  }
+
   try {
     
     const user = await User.signup(email, password)
