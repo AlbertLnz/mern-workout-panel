@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 const App = () => {
-  const [workouts, setWorkouts] = useState([]);
+  // const [workouts, setWorkouts] = useState([]);
+  const { workouts, dispatch } = useWorkoutsContext()
 
   useEffect(() => {
 
@@ -13,7 +15,7 @@ const App = () => {
       const json = await response.json()
 
       if(response.ok) {
-        setWorkouts(json)
+        dispatch({ type: 'SET_WORKOUTS', payload: json })
       }
 
     }
@@ -24,19 +26,12 @@ const App = () => {
 
   return (
     <div className="home">
-
       <div className="workouts">
-
-        {workouts.map((workout) => (
-
-          <p key={workout._id}><WorkoutDetails workout={workout}/></p>
-
+        {workouts && workouts.map((workout) => (
+          <WorkoutDetails key={workout._id} workout={workout} />
         ))}
-
       </div>
-
       <WorkoutForm />          
-          
     </div>
   )
 }
