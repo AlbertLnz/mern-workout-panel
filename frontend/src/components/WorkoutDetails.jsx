@@ -1,8 +1,11 @@
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext.js'
+import { format } from "@formkit/tempo"
 
 const WorkoutDetails = ({ workout }) => {
   
   const { dispatch } = useWorkoutsContext()
+
+  const dateReadable = format(workout.createdAt, "full")
 
   const handleDelete = async () => {
 
@@ -22,7 +25,7 @@ const WorkoutDetails = ({ workout }) => {
       <h4>{ workout.title }</h4>
       <p><strong>Load (kg): </strong>{ workout.load }</p>
       <p><strong>Reps: </strong>{ workout.reps }</p>
-      <p>{ workout.createdAt }</p>
+      <p>{ dateReadable }</p>
       <span onClick={handleDelete} className='material-symbols-outlined'>Delete</span>
     </div>
   )
