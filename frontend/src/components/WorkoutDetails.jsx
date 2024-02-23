@@ -1,5 +1,6 @@
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext.js'
 import { format } from "@formkit/tempo"
+import { Toaster, toast } from "sonner"
 
 const WorkoutDetails = ({ workout }) => {
   
@@ -16,6 +17,10 @@ const WorkoutDetails = ({ workout }) => {
     const json = await response.json()
 
     if(response.ok) {
+      toast.success(json.message, {
+        style: { background: '#FF8080', color: 'black' }
+      });
+
       dispatch({ type: 'DELETE_WORKOUT', payload: json.workout })
     }
   }
@@ -27,6 +32,8 @@ const WorkoutDetails = ({ workout }) => {
       <p><strong>Reps: </strong>{ workout.reps }</p>
       <p>{ dateReadable }</p>
       <span onClick={handleDelete} className='material-symbols-outlined'>Delete</span>
+      
+      <Toaster />
     </div>
   )
 }
