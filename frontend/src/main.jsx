@@ -7,6 +7,7 @@ import NavBar from './components/NavBar.jsx'
 import { WorkoutsContextProvider } from './context/WorkoutContext.jsx'
 import { AuthContextProvider } from './context/AuthContext.jsx'
 import Signup from './pages/Signup.jsx'
+import Login from './pages/Login.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Routes>
                 <Route path="/" element={ <App /> }/>
                 <Route path="/signup" element={ <Signup /> }/>
+                <Route path="/login" element={ <Login /> }/>
               </Routes>
             </div>
           </BrowserRouter>
