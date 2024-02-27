@@ -15,21 +15,21 @@ const NavBar = () => {
 
       <div className="container">
         <Link to="/">
-          <h1>Workout body</h1>
+          <h1>Workout Buddy</h1>
         </Link>
         <nav>
-          { user && (
+          {user && (
             <div>
-              <span>{ user.email }</span>
-              <button onClick={handleLogout}>Logout</button>
+              <span>{user.email}</span>
+              <button onClick={handleLogout}>Log out</button>
             </div>
-          ) }
-          { !user && (
+          )}
+          {!user && (
             <div>
-              <Link to='/signup'>Signup</Link>
-              <Link to='/login'>Login</Link>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Signup</Link>
             </div>
-          ) }
+          )}
         </nav>
       </div>
 
