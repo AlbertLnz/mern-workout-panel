@@ -1,0 +1,127 @@
+{
+  "info": {
+    "name": "MERN Workout Panel",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "LOGIN",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "http://localhost:3000/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"laia@gmail.com\",\n  \"password\": \"Laia123*\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "SIGNUP",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "http://localhost:3000/auth/signup",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"laia@gmail.com\",\n  \"password\": \"Laia123*\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Workout",
+      "item": [
+        {
+          "name": "DELETE",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "http://localhost:3000/api/workouts/ID"
+          }
+        },
+        {
+          "name": "GET_USER_WORKOUTS",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:3000/api/workouts"
+          }
+        },
+        {
+          "name": "GET_ONE_STATUS_200",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:3000/api/workouts/ID"
+          }
+        },
+        {
+          "name": "GET_ONE_STATUS_400",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:3000/api/workouts/123"
+          }
+        },
+        {
+          "name": "PATCH",
+          "event": [],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": "http://localhost:3000/api/workouts/ID",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Muñeca\",\n  \"reps\": 32\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "POST",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "http://localhost:3000/api/workouts",
+            "body": {
+              "mode": "raw",
+              "raw": "{ \n  \"title\": \"Pectorals\", \n  \"reps\": 10, \n  \"load\": 13\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": []
+}

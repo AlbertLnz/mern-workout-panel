@@ -1,0 +1,263 @@
+{
+  "name": "MERN Workout Panel",
+  "version": "1",
+  "items": [
+    {
+      "type": "folder",
+      "name": "User",
+      "items": [
+        {
+          "type": "http",
+          "name": "LOGIN",
+          "seq": 1,
+          "request": {
+            "url": "http://localhost:3000/auth/login",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"email\": \"laia@gmail.com\",\n  \"password\": \"Laia123*\"\n}",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "none",
+              "basic": {
+                "username": "",
+                "password": ""
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "SIGNUP",
+          "seq": 2,
+          "request": {
+            "url": "http://localhost:3000/auth/signup",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"email\": \"laia@gmail.com\",\n  \"password\": \"Laia123*\"\n}",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "none",
+              "basic": {
+                "username": "",
+                "password": ""
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "Workout",
+      "items": [
+        {
+          "type": "http",
+          "name": "DELETE",
+          "seq": 6,
+          "request": {
+            "url": "http://localhost:3000/api/workouts/ID",
+            "method": "DELETE",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "none",
+              "basic": {
+                "username": "",
+                "password": ""
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "GET_USER_WORKOUTS",
+          "seq": 1,
+          "request": {
+            "url": "http://localhost:3000/api/workouts",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "bearer",
+              "basic": {
+                "username": "",
+                "password": ""
+              },
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQ4OGViNTA3MzM3Y2RlNDU5ZjljNzUiLCJpYXQiOjE3MDkwMjk4MjUsImV4cCI6MTcwOTI4OTAyNX0.eKn81q9tzNCHL3Y1qhEBqU55kbyRtnx1NG92gEkwppk"
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "GET_ONE_STATUS_200",
+          "seq": 2,
+          "request": {
+            "url": "http://localhost:3000/api/workouts/ID",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "none",
+              "basic": {
+                "username": "",
+                "password": ""
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "GET_ONE_STATUS_400",
+          "seq": 3,
+          "request": {
+            "url": "http://localhost:3000/api/workouts/123",
+            "method": "GET",
+            "headers": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "none",
+              "basic": {
+                "username": "",
+                "password": ""
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "PATCH",
+          "seq": 5,
+          "request": {
+            "url": "http://localhost:3000/api/workouts/ID",
+            "method": "PATCH",
+            "headers": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"title\": \"Muñeca\",\n  \"reps\": 32\n}",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "none",
+              "basic": {
+                "username": "",
+                "password": ""
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        },
+        {
+          "type": "http",
+          "name": "POST",
+          "seq": 4,
+          "request": {
+            "url": "http://localhost:3000/api/workouts",
+            "method": "POST",
+            "headers": [],
+            "body": {
+              "mode": "json",
+              "json": "{ \n  \"title\": \"Pectorals\", \n  \"reps\": 10, \n  \"load\": 13\n}\n",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "auth": {
+              "mode": "none",
+              "basic": {
+                "username": "",
+                "password": ""
+              },
+              "bearer": {
+                "token": ""
+              }
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "query": []
+          }
+        }
+      ]
+    }
+  ],
+  "environments": []
+}
