@@ -28,8 +28,11 @@ export const useSignup = () => {
     }
   
     if(response.ok) {
-      localStorage.setItem('user', JSON.stringify(json.user)) // save the user to local storage
-      dispatch({ type: 'SIGNUP', payload: json.user }) // update the userContext
+      const { email } = json.user
+      const token = json.token
+
+      localStorage.setItem('user', JSON.stringify({ email, token })) // save the user to local storage
+      dispatch({ type: 'SIGNUP', payload: { email, token } }) // update the userContext
   
       setIsLoading(false)
     }
