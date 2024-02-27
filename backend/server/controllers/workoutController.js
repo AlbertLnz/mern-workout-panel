@@ -4,8 +4,9 @@ import mongoose from "mongoose";
 export const getAllWorkouts = async (req, res) => {
 
   try {
-    
-    const workouts = await Workout.find({}).sort({createdAt: -1}) // Descending order
+    const user_id = req.user._id // property get it from 'authMiddleware'
+
+    const workouts = await Workout.find({ user_id }).sort({createdAt: -1}) // Descending order
     res.status(200).json(workouts)
 
   } catch (error) {
@@ -58,8 +59,9 @@ export const createWorkout = async (req, res) => {
   }
 
   try {
-    
-    const workoutCreated = await Workout.create({ title, reps, load })
+    const user_id = req.user._id // property get it from 'authMiddleware'
+
+    const workoutCreated = await Workout.create({ title, reps, load, user_id })
     res.status(201).json({ message: 'Workout created', workoutCreated })
 
   } catch (error) {
